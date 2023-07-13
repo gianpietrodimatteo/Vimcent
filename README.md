@@ -1,8 +1,8 @@
-<p align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg" height="220">
+<p align="center" display="inline-block">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/380px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg" height="200">
 </p>
-<p align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Vimlogo.svg" height="220">
+<p align="center" display="inline-block">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Vimlogo.svg" height="200">
 </p>
 
 # Vimcent
