@@ -8,6 +8,7 @@ install_vimrcs() {
   ln -sv "$(pwd)/basic.vim" ~/.vim
   ln -sv "$(pwd)/text.vim" ~/.vim/ftplugin
   ln -sv "$(pwd)/plugins.vim" ~/.vim
+  ln -sv "$(pwd)/keymaps.vim" ~/.vim
 }
 
 install_plugins() {
@@ -47,7 +48,7 @@ install() {
 
 prompt() {
   read -p "This will delete ~/.vim folder and ~/.vimrc file. Proceed? [y]" -n 1 -r
-  echo    # (optional) move to a new line
+  echo
   if [[ $REPLY =~ ^[Yy]$ ]] 
   then
     clean

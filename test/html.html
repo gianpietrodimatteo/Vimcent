@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Example</title>
+  <style>
+    /* CSS syntax highlighting */
+    .tag { color: #008000; }
+    .attribute { color: #800080; }
+    .value { color: #0000FF; }
+    .string { color: #FF0000; }
+    .comment { color: #808080; }
+
+    /* Indentation */
+    pre code {
+      white-space: pre-wrap;
+      padding: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="tag">HTML Example</h1>
+
+  <p class="tag">This is a sample HTML file to demonstrate various constructs and tags.</p>
+
+  <h2 class="tag">Text Formatting</h2>
+  <p class="tag">This is a <strong class="tag">bold</strong> text. This is an <em class="tag">italicized</em> text.</p>
+
+  <h2 class="tag">Lists</h2>
+  <ul class="tag">
+    <li class="tag">Unordered list item 1</li>
+    <li class="tag">Unordered list item 2</li>
+    <li class="tag">Unordered list item 3</li>
+  </ul>
+
+  <ol class="tag">
+    <li class="tag">Ordered list item 1</li>
+    <li class="tag">Ordered list item 2</li>
+    <li class="tag">Ordered list item 3</li>
+  </ol>
+
+  <h2 class="tag">Links</h2>
+  <p class="tag">Visit <a href="https://www.example.com" class="attribute">Example.com</a> for more information.</p>
+
+  <h2 class="tag">Images</h2>
+  <img src="https://via.placeholder.com/300" alt="Placeholder Image" class="attribute">
+
+  <h2 class="tag">Tables</h2>
+  <table class="tag">
+    <tr class="tag">
+      <th class="tag">Name</th>
+      <th class="tag">Age</th>
+    </tr>
+    <tr class="tag">
+      <td class="tag">John</td>
+      <td class="tag">25</td>
+    </tr>
+    <tr class="tag">
+      <td class="tag">Jane</td>
+      <td class="tag">30</td>
+    </tr>
+  </table>
+
+  <h2 class="tag">Code</h2>
+  <pre><code class="tag">
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title class="tag"&gt;HTML Example&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1 class="tag"&gt;Hello, World!&lt;/h1&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  </code></pre>
+
+  <script class="tag">
+    // Toggle dark color scheme
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Toggle custom color scheme
+    function toggleCustomMode() {
+      document.body.classList.toggle('custom');
+    }
+  </script>
+
+  <button onclick="toggleDarkMode()" class="attribute">Toggle Dark Mode</button>
+  <button onclick="toggleCustomMode()" class="attribute">Toggle Custom Mode</button>
+</body>
+</html>
