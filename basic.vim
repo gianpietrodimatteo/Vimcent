@@ -2,41 +2,28 @@
 " Leader
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader=" " " Set to space
+" Set to space
+let mapleader=" " 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colorscheme
+" Terminal emulator settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set term=kitty " Required for usage with kitty terminal emulator
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Appearence
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set colorscheme
 colorscheme desert
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Status line
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set colorscheme background
+set background=dark
+
+set termguicolors " Enable 24 bit RGB color
 
 set laststatus=2 " Always display the status line
-
-" Format the status line
-set statusline=
-
-" Git branch
-"  set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-
-" Path
-"  set statusline+=%#LineNr#
-set statusline+=\ %F
-set statusline+=%m\ 
-set statusline+=%=
-
-" Encoding, file system, line column and position
-"  set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ Ln\ %l\ Col\ %c
-set statusline+=\ %p%%
-set statusline+=\ 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic settings
@@ -49,7 +36,7 @@ set encoding=utf-8 " Sets encoding shown in terminal
 set fileencodings=utf-8 " Sets encoding of written files
 set splitright splitbelow " Orientation of splitting windows
 set ignorecase " Defaults search to ignore case
-nnoremap <M-c> :set ignorecase! <CR> " Maps alt c to toggle ignore case
+
 set incsearch " Highlight all search matches
 set formatoptions-=cro " Disable automatic comenting on new line
 set expandtab shiftwidth=2 softtabstop=2 " Use tab as 2 spaces
@@ -60,6 +47,7 @@ set number " Shows line numbers
 set history=500 " Set command history to remember 500 commands
 set hlsearch " Use highlighting when doing a search
 set lazyredraw " Don't redraw while executing macros (good performance config)
+set hidden " Allows you to leave buffer without saving it
 
 " Activates filetype detection. This allows you to assign different syntax, 
 " plugins and indentation for different file types
@@ -88,6 +76,11 @@ set colorcolumn=0
 " Backup, swap and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Sets location for viminfo file
+wv ~/.vim/.viminfo
+rv ~/.vim/.viminfo
+set viminfo+=n~/.vim/.viminfo
+
 " Turns off backup 
 set nobackup
 set nowb
@@ -107,68 +100,153 @@ endtry
 " Shortcuts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Moving lines
-nmap <leader>j Vmp
-nmap <leader>k VmkP
+"Alt moves lines/selection up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" Moving through buffers
-nmap <leader>l :bnext<cr>
-nmap <leader>h :bprevious<cr>
+" Alt-c toggles ignore case
+nmap <A-c> :set ignorecase! <CR> 
 
-nnoremap <leader>s :ToggleWrap<CR>
+" BUFFERS
+" WINDOWS
+" TABS
 
-nnoremap <leader>a :ToggleLineBreakHighlight<CR>
+" Move between windows
+nmap <leader>j <C-W>h
+nmap <leader>k <C-W>j
+nmap <leader>l <C-W>k
+nmap <leader>; <C-W>l
+
+" Move between buffers
+nmap <leader>d :bp<CR>
+nmap <leader>f :bn<CR>
+
+" Move between tabs
+nmap <leader>a :tabp<CR>
+nmap <leader>s :tabn<CR>
+
+" Quick split window
+nmap <leader>h :vsplit<Enter>
+
+" Quick comment code
+nmap <leader>/ gcc
+
+" Close buffer
+nmap <leader>w :bd<CR>
+" Close all buffers
+nmap <leader>q :bufdo bd<cr>
+
+" Close tab
+map <leader>r :tabclose<CR>
+" New tab
+"  map <leader>e :tabnew<cr>
+
+" Close other tabs
+map <leader>t :tabonly<cr>
+" Move tab
+map <leader>g :tabmove
+
+" Opens a new tab within the current buffer's path
+map <leader>e :tabedit <C-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>v :cd %:p:h<cr>:pwd<cr>
+
+
+
+" Spell-check e for english, i for portuguese
+nnoremap <leader>o :setlocal spell! spelllang=en_us<CR>
+nnoremap <leader>p :setlocal spell! spelllang=pt<CR>
+
+" Toggle line wrap at 80 characters
+nnoremap <leader>n :ToggleWrap<CR>
+
+" Toggle highlighting column 81
+nnoremap <leader>m :ToggleLineBreakHighlight<CR>
 
 " Quick newline
-nnoremap <leader><Enter> o<Esc>
+nnoremap <leader>u o<Esc>
+" Quick enter
+nnoremap <leader>i i<Enter><Esc>
 
 " Quick macros
-nnoremap <Space>q @q
+nnoremap <leader><leader> @q
 
-" Ctrl+a select all
-nnoremap <C-a> ggVG
+" Quick Omnicomplete (shift tab)
+imap <s-tab> <C-X><C-O>
 
-"  Search for selection
+" Turn workspace features of current directory on and off
+nnoremap <leader>, :ToggleWorkspace<CR>
+
+" Turn autosave on and off
+nnoremap <leader>. :ToggleAutosave<CR>
+
+" Turn off search highlighting using shortcut
+nnoremap <leader><Esc> :nohlsearch<CR>
+" Turn off search highlighting using escape
+"  nnoremap <esc> :noh<return><esc>
+" This is needed because vim uses escape on its internal configuration
+"  nnoremap <esc>^[ <esc>^[
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shortcuts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" WIP
+" Disable execution mode mapping
+nnoremap Q <nop>
+
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+" Specify the behavior when switching between buffers
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" WIP
+
+" Search backward for selection
 vnoremap # y?\V<C-R>=escape(@",'/\')<CR><CR>
+" Search forward for selection
 vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" Correct indentation and apply line wrap
-nnoremap <m-f> V=Vgq<CR>
-" Correctly indent the whole file motherfuckerrr
-nnoremap <leader>f :g/./ normal gqq<CR>:noh<CR>
+" Correct indentation and apply line wrap on whole file
+nnoremap <F2> :g/./ normal gqq<CR>:noh<CR>
 
-" F7 corrects indentation
-nnoremap <F7> gg=G<C-o><C-o>
+" Correct indentation and apply line wrap on line
+nnoremap <F3> V=Vgq<CR>
+
+" Corrects indentation on file
+nnoremap <F4> gg=G<C-o><C-o>
 
 " Print time stamp
-nnoremap <F2> :read !date<CR>
-
-" Escaping on normal mode turns off search highlighting
-nnoremap <Esc> :nohlsearch<CR>
+nnoremap <F5> :read !date<CR>
 
 " Prompt before force quitting
 cnoremap <silent> q!<CR>  :call ConfirmQuit()<CR>
 nmap ZQ :call ConfirmQuit()<CR>
 cnoremap <silent> qa!<CR>  :call ConfirmQuitAll()<CR>
 
-" Easy quit, save, one or all
-nnoremap ZW :call ConfirmQuitAll()<CR> " Quit without saving all
-nnoremap ZS :wa<CR> " Save all
-nnoremap ZA :update<CR> " Save current buffer
-nnoremap ZX :xa<CR> " Save all and quit
-
-" => Fast editing and reloading of vimrc configs
-map <leader>e :e! ~/.vimrc<cr>
-autocmd! bufwritepost ~/.vimrc source ~/.vimrc
-
-" Quick source current configuration file
-nmap <leader><leader>o :so %<Enter>
-
-" Remapping cxco to ctrl+space
-imap <C-Space> <C-X><C-O>
-
-" Make easy enter
-nnoremap <leader><Enter> i<Enter><Esc>
+" Quit without saving all
+nnoremap ZW :call ConfirmQuitAll()<CR> 
+" Save all
+nnoremap ZS :wa<CR> 
+" Save current buffer
+nnoremap ZA :update<CR> 
+" Save all and quit
+nnoremap ZX :xa<CR> 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -229,22 +307,6 @@ function! DeleteSwapFiles()
   call delete(si . 'swp')
   call delete(si . 'swo')
   call delete(si . 'swn')
-endfunction
-
-" Get branch information
-function! GitBranch()
-
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-
-endfunction
-
-" Format git branch information
-function! StatuslineGit()
-
-  let l:branchname = GitBranch()
-
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
