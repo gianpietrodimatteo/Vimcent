@@ -19,7 +19,7 @@ set statusline+=\ Ln\ %l\ Col\ %c
 set statusline+=\ %p%%
 set statusline+=\
 
-" Return to last edit position when opening files 
+" Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Window movement

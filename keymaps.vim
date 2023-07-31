@@ -14,11 +14,11 @@ nmap <F3> gg=G<C-o><C-o>
 " Print time stamp
 nmap <F4> :read !date<CR>
 
-" Turn workspace features of current directory on and off
-nmap <F5> :ToggleWorkspace<CR>
+"  " Turn workspace features of current directory on and off
+"  nmap <F5> :ToggleWorkspace<CR>
 
-" Turn autosave on and off
-nmap <F6> :ToggleAutosave<CR>
+"  " Turn autosave on and off
+"  nmap <F6> :ToggleAutosave<CR>
 
 " Switch CWD to the directory of the open buffer
 nmap <F7> :cd %:p:h<cr>:pwd<cr>
@@ -32,6 +32,9 @@ nmap <F10> :ToggleWrap<CR>
 
 " Toggle highlighting column 81
 nmap <F11> :ToggleLineBreakHighlight<CR>
+
+"  " Close any hidden buffers not currently tied to a tab window 
+"  nmap <F12> :CloseHiddenBuffers<CR>
 
 " Alt key combinations
 
@@ -186,14 +189,22 @@ nnoremap Q <nop>
 "  " Insert 	Free 	This can also be typed as <C-/>.
 "  imap <C-_>
 
+
+" open file
+nmap <A-o> :e 
+
 " Opens a new tab within the current buffer's path
 map <leader>e :tabedit <C-r>=expand("%:p:h")<cr>/
 
 " Turn off search highlighting using shortcut
 nnoremap <leader><Esc> :nohlsearch<CR>
 
-"List buffers leader
-noremap <Leader>l :ls<CR>
+" Load all folder files into buffers
+noremap <Leader>l :args *<CR>
+
+" Another buffer list command
+noremap <Leader>j :ls<CR>
+
 " Go to buffer number
 nnoremap <A-1> :1b<CR>
 nnoremap <A-2> :2b<CR>
@@ -211,6 +222,18 @@ vnoremap # y?\V<C-R>=escape(@",'/\')<CR><CR>
 " Search forward for selection
 vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+" Delete current file
+nmap <C-Del> :call ConfirmDeleteCurrentFile()<CR>
+
+" New empty file
+nmap <C-n> :enew<CR>
+"  File operations:
+"  	New
+"  	Open
+"  	Save
+"  	Save as
+"  	Delete
+
 " Prompt before force quitting
 cnoremap <silent> q!<CR>  :call ConfirmQuit()<CR>
 nmap ZQ :call ConfirmQuit()<CR>
@@ -224,3 +247,13 @@ nnoremap ZS :wa<CR>
 nnoremap ZA :update<CR> 
 " Save all and quit
 nnoremap ZX :xa<CR> 
+
+" Fix cedilla
+inoremap ć ç
+
+" File management
+" Buffer management
+" Tab management
+" Window management
+" Editor keys
+" VIM keys

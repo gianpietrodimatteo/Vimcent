@@ -19,5 +19,5 @@ setlocal nonumber
 set colorcolumn=81
 
 " Turn autosave on
-au BufRead,BufNewFile *.txt let g:workspace_autosave = 1
+"  au BufRead,BufNewFile *.txt let g:workspace_autosave = 1
 

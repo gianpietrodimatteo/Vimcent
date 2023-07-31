@@ -68,6 +68,9 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 highlight ColorColumn ctermbg=grey
 set colorcolumn=0
 
+"  set autochdir
+" change working directory to the one of the file
+    "  :cd %:p:h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backup, swap and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,6 +98,13 @@ endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Confirm delete current file and buffer
+function! ConfirmDeleteCurrentFile()
+  if (confirm("Delete this file?", "&Yes\n&No", 2)==1)
+    :call delete(expand('%')) | bdelete!
+  endif
+endfu
 
 " Confirm quit
 function! ConfirmQuit()

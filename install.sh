@@ -15,7 +15,7 @@ install_plugins() {
   # Make plugins folder
   mkdir -p ~/.vim/pack/all-vendors/start
   cd ~/.vim/pack/all-vendors/start || return
- 
+
   # Separate cut and delete
   git clone --depth=1 https://github.com/svermeulen/vim-cutlass.git
   # Autosave and session/workspace saving
@@ -25,11 +25,15 @@ install_plugins() {
   # Sorrounding
   git clone --depth=1 https://github.com/tpope/vim-surround.git
   # Gruvbox colorscheme
-  git clone --depth=1 https://github.com/morhetz/gruvbox.git  
+  git clone --depth=1 https://github.com/morhetz/gruvbox.git
   # Status line formatting
   git clone --depth=1 https://github.com/itchyny/lightline.vim.git
   # Git branch information on status line
-  git clone --depth=1 https://github.com/itchyny/vim-gitbranch.git 
+  git clone --depth=1 https://github.com/itchyny/vim-gitbranch.git
+  # Fuzzy file finder
+  git clone --depth=1 https://github.com/ctrlpvim/ctrlp.vim.git
+  # Search folder contents (requires ack)
+  git clone --depth=1 https://github.com/mileszs/ack.vim.git
 }
 
 clean() {
@@ -49,7 +53,7 @@ install() {
 prompt() {
   read -p "This will delete ~/.vim folder and ~/.vimrc file. Proceed? [y]" -n 1 -r
   echo
-  if [[ $REPLY =~ ^[Yy]$ ]] 
+  if [[ $REPLY =~ ^[Yy]$ ]]
   then
     clean
     install
@@ -60,7 +64,7 @@ prompt() {
 }
 
 update_plugins() {
-  cd ~/.vim/pack/all-vendors/start || return 
+  cd ~/.vim/pack/all-vendors/start || return
   find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree="$PWD"/{} pull origin master \;
 }
 
