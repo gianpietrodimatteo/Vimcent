@@ -34,6 +34,10 @@ install_plugins() {
   git clone --depth=1 https://github.com/ctrlpvim/ctrlp.vim.git
   # Search folder contents (requires ack)
   git clone --depth=1 https://github.com/mileszs/ack.vim.git
+  # Helps on creating lists
+  git clone --depth=1 https://github.com/dkarter/bullets.vim.git
+  # Helps on editing lists
+  git clone --depth=1 https://github.com/KabbAmine/lazyList.vim.git
 }
 
 clean() {
@@ -57,6 +61,7 @@ prompt() {
   then
     clean
     install
+    echo "Make sure to install ack package on your system"
     exit 1
   else
     echo "Aborted by user."

@@ -1,0 +1,56 @@
+bladjliaj Z
+boaisdjas
+===
+
+    asdfoij aosidjf oaisjd foiasjd foiaoigjaso idjg aosidjg oasidjgo asidjgo
+asidjg oasijg oasijdg oasidjg oasidjg oasidjg oasidgj aosdkJ
+aosdfijaosdifj aosdijf oasidjf oasidjf oasidjf oasidjf oasidjf oasijdf oasidjf
+oasidjf oaisjdf oasjidf oaisdjf oasdijf
+aosdij
+asiodfj
+asdfjio
+
+
+" Instead of failing a command because of unsaved changes, instead raise a
+" dialogue asking if you wish to save changed files.
+set confirm
+
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" which is the default
+map Y y$
+
+set formatoptions=tcqrn1
+
+1. bla
+2. bli
+
+8. il1. - bal
+9. il2. - lsd
+10. il3. - sha
+    8. 1. asdf
+il4. - bier
+
+- [ ] 2. asdofi
+- [ ] aosdifj
+- [ ] asdojif
+
+1. bla bla bla
+2. aosdifjoijo
+3. ojoasdifj
+4.
+4. asdofij
+    1. asodifjo
+    2. o
+    3.
+    2.
+
+- [X] ooasidjf
+- [X] aosidfjo
+- [X] asdofij
+- [ ]
+
+
+* oaisjdf
+* aosdifj
+* oaisjdf
+*

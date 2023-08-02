@@ -14,6 +14,9 @@ Vimcent is a lean VIM configuration that aims to use it as a text and code edito
 * Autosave and session saving
 * Easy comment code (gcc) and surround (S) 
 * Special configuration for text files, such as text wrapping and using normal regular TAB 
+* Fuzzy file finder (Ctrl+p)
+* Search files contents 
+* Smart lists
 * Many other basic "must have" configurations for using VIM in modern days
 
 Furthermore,
@@ -36,3 +39,7 @@ Needless to remind you that you can just copy whatever you want from basic.vim, 
 * [gruvbox](https://github.com/morhetz/gruvbox): Gruvbox colorscheme
 * [lightline](https://github.com/itchyny/lightline.vim): Format status line
 * [vim-gitbranch](https://github.com/itchyny/vim-gitbranch): Adds git branch information to status line
+* [ctrlp](https://github.com/ctrlpvim/ctrlp.vim.git): Fuzzy file finder
+* [ack](https://github.com/mileszs/ack.vim.git): Search files contents
+* [bullets](https://github.com/dkarter/bullets.vim.git): Helps on creating lists
+* [lazyList](https://github.com/KabbAmine/lazyList.vim.git): Helps on editing lists
