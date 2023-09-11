@@ -193,3 +193,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Delete swap files on save
 autocmd BufWritePost * call DeleteSwapFiles()
+
+" Make sure to set formatoptions for all filetypes
+au FileType * setlocal formatoptions-=cro
+

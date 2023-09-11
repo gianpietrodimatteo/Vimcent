@@ -21,10 +21,12 @@ nmap <F2> :cd %:p:h<cr>:pwd<cr>
 nmap <F10> :read !date<CR>
 
 " Toggle line wrap at 80 characters
-nmap <F11> :ToggleWrap<CR>
+" nmap <F11> :ToggleWrap<CR>
 
-" Toggle highlighting column 81
-nmap <F12> :ToggleLineBreakHighlight<CR>
+" Toggle line wrap and column 81 highlight
+nmap <F12> :call ToggleLineBreakHighlightFunction() <bar> call ToggleWrapFunction()<CR>
+
+" nmap <F12> :ToggleLineBreakHighlight<CR>
 
 "------------------------------------------------------------------------------
 " Editor commands
@@ -148,7 +150,7 @@ nnoremap ZC :w<space>
 nnoremap ZD :call ConfirmDeleteCurrentFile()<CR>
 
 " Quick print current directory
-nmap <Leader>w :pwd<CR> 
+nmap <Leader>w :pwd<CR>
 
 "------------------------------------------------------------------------------
 " Other configurations
