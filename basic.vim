@@ -45,6 +45,9 @@ set hlsearch " Use highlighting when doing a search
 set lazyredraw " Don't redraw while executing macros (good performance config)
 set hidden " Allows you to leave buffer without saving it
 
+" Send cursor to adjacent line when moving sideways (arrow keys or hl)
+set whichwrap+=<,>,h,l
+
 " Activates filetype detection. This allows you to assign different syntax,
 " plugins and indentation for different file types
 filetype indent plugin on

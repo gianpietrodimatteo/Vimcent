@@ -52,6 +52,9 @@ vnoremap <C-CR> <Esc>o<Esc>
 nnoremap <A-CR> i<CR><Esc>
 vnoremap <A-CR> <Esc>i<CR><Esc>
 
+" Insert space
+nnoremap <A-Space> i<Space><Esc>
+
 " Comment line
 nmap <C-/> gcc
 imap <C-/> <Esc>gcci

@@ -12,6 +12,8 @@ setlocal shiftwidth=4
 " Don't auto indent
 set noautoindent
 
+filetype indent off
+
 " Don't display number
 setlocal nonumber
 

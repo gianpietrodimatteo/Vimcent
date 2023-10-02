@@ -68,8 +68,8 @@ colorscheme gruvbox
 "------------------------------------------------------------------------------
 
 " Note the space after the command
-nnoremap gli :LazyList 
-vnoremap gli :LazyList 
+nnoremap gli :LazyList
+vnoremap gli :LazyList
 let g:lazylist_omap = 'il'
 let g:lazylist_maps = [
 			\ 'gl',
@@ -107,7 +107,7 @@ let g:bullets_enabled_file_types = [
     \ 'text',
     \ 'gitcommit',
     \ 'scratch'
-    \]           
+    \]
 
 "------------------------------------------------------------------------------
 "  Ack
@@ -125,3 +125,7 @@ noremap <Leader>a :Ack <cword><cr>
 " When you press <leader>r you can search and replace the selected text
 " On the same file, not everywhere*
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
+"------------------------------------------------------------------------------
+" packadd! matchit
+
