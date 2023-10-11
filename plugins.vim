@@ -113,19 +113,17 @@ let g:bullets_enabled_file_types = [
 "  Ack
 "------------------------------------------------------------------------------
 
-" When you press gv you Ack after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+" Find selection
+vnoremap <silent> <C-F> :call VisualSelection('gv', '')<CR>
 
-" Open Ack and put the cursor in the right position
-map <leader>g :Ack<Space>
+" Find
+nnoremap <silent> <C-F> :Ack<Space>''<Left>
 
-" Search for word beneath the cursor
-noremap <Leader>a :Ack <cword><cr>
+" Find and replace
+vnoremap <silent> <C-H> :call VisualSelection('replace', '')<CR>
 
-" When you press <leader>r you can search and replace the selected text
-" On the same file, not everywhere*
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-"------------------------------------------------------------------------------
-" packadd! matchit
+" Use the silver searcher instead of ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
