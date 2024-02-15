@@ -127,3 +127,17 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+"------------------------------------------------------------------------------
+"  CtrlP
+"------------------------------------------------------------------------------
+
+let g:ctrlp_match_window = 'results:100'
+
+"------------------------------------------------------------------------------
+"  EasyMotion
+"------------------------------------------------------------------------------
+
+" Map to <Leader> instead of <Leader><Leader> which is the current default
+map <Leader> <Plug>(easymotion-prefix)
+
+map <Leader><Leader> <Plug>(easymotion-bd-w)

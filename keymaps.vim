@@ -72,7 +72,8 @@ imap <A-n> <Esc>YPi
 nmap <A-q> @q
 
 " Turn off search highlighting using shortcut
-nnoremap <leader><Esc> :nohlsearch<CR>
+" nnoremap <leader><Esc> :nohlsearch<CR>
+nnoremap <Leader>/ :noh<CR>
 
 " Search backward for selection
 vnoremap # y?\V<C-R>=escape(@",'/\')<CR><CR>
@@ -96,10 +97,10 @@ noremap <A-F7> :e#<CR>
 nmap <F8> :bn<CR>
 
 " Close all buffers
-nmap <Leader>d :bufdo bd<cr>
+nmap <C-F6> :bufdo bd<cr>
 
 " Load all folder files into buffers
-noremap <Leader>l :args *<CR>
+noremap <C-F8> :args *<CR>
 
 " Go to buffer number
 nnoremap <A-1> :1b<CR>
@@ -153,7 +154,7 @@ nnoremap ZC :w<space>
 nnoremap ZD :call ConfirmDeleteCurrentFile()<CR>
 
 " Quick print current directory
-nmap <Leader>w :pwd<CR>
+" nmap <Leader>w :pwd<CR>
 
 "------------------------------------------------------------------------------
 " Other configurations

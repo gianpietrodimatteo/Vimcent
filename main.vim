@@ -1,4 +1,4 @@
-" Vimcent the "lean" vim configuration
+" Vimcent 
 
 source ~/.vim/basic.vim
 source ~/.vim/plugins.vim

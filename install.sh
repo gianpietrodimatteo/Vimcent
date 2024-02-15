@@ -38,6 +38,8 @@ install_plugins() {
   git clone --depth=1 https://github.com/dkarter/bullets.vim.git
   # Helps on editing lists
   git clone --depth=1 https://github.com/KabbAmine/lazyList.vim.git
+  # Helps moving around
+  git clone --depth=1 https://github.com/easymotion/vim-easymotion.git
 }
 
 clean() {
