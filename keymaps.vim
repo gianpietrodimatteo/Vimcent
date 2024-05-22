@@ -80,6 +80,9 @@ vnoremap # y?\V<C-R>=escape(@",'/\')<CR><CR>
 " Search forward for selection
 vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+" Remove carriage return ^M characters (and substitute for newline)
+nnoremap ZM :%s/\r/\r/g
+
 "------------------------------------------------------------------------------
 " Buffer management
 "------------------------------------------------------------------------------
